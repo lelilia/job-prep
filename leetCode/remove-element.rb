@@ -23,16 +23,22 @@ def remove_element(nums, val)
     return i
 end
 
-nums = [2]
-val = 2
+def run_tests
+	desc = 'empty array'
+	result = remove_element([], 2)
+	assert(result, 0, desc)
 
-l = remove_element(nums, val)
+	desc = 'delete whole array'
+	result = remove_element([1, 1, 1], 1)
+	assert(result, 0, desc)
 
-
-
-p nums
-(0..l-1).each do |k|
-	print nums[k]
-	print " "
+	desc = 'delete nothing'
+	result = remove_element([1,2,3], 5)
+	assert(result, 3, desc)
 end
-puts
+
+def assert(result, correct, desc)
+	puts "#{desc} ... #{result == correct ? 'PASS' : 'FAIL'}"
+end
+
+run_tests
