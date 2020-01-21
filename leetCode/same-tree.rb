@@ -13,17 +13,7 @@ end
 # @param {TreeNode} q
 # @return {Boolean}
 
-
-
-def build_tree(arr, root, i, n)
-	if i < n
-		root = TreeNode.new(arr[i])
-		root.left = build_tree(arr, root.left, i*2+1, n)
-		root.right = build_tree(arr, root.right, i*2+2, n)
-	end
-	return root
-end
-
+# make array from tree -> did not need this at all but will leave it coz it works 
 def build_array(root)
 	arr = []
 	q = []
@@ -41,6 +31,18 @@ def build_array(root)
 	return arr
 end
 
+# build tree from array
+def build_tree(arr, root, i, n)
+	if i < n
+		root = TreeNode.new(arr[i])
+		root.left = build_tree(arr, root.left, i*2+1, n)
+		root.right = build_tree(arr, root.right, i*2+2, n)
+	end
+	return root
+end
+
+
+# compare two binary trees
 def is_same_tree(p, q)
 	if (p == nil) ^ (q == nil) 
 		return false
