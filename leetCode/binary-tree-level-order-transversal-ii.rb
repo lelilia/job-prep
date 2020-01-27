@@ -15,6 +15,7 @@ end
 # @param {TreeNode} root
 # @return {Integer[][]}
 def level_order_bottom(root)
+	# exception
 	return [] if root == nil
 	result = [[root.val]]
 	q = [root]
